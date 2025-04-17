@@ -1,11 +1,12 @@
 # config.py
 
-# --- Wi-Fi Configuration ---
-WIFI_SSID = ""         # Your Wi-Fi SSID (network name)
-WIFI_PASSWORD = ""     # Your Wi-Fi password
+import ujson
 
-# --- Debug ---
-DEBUG = True           # Enable debug output default: False
+def load_config():
+    try:
+        with open("config.json", "r") as f:
+            return ujson.load(f)
+    except:
+        return {}
 
-# --- Logging ---
-LOGGING_ENABLED = True  # Enable logging default: True
+config = load_config()
