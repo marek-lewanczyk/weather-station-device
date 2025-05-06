@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Konfiguracja Pogodynki</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #ff8800;
+        }
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .checkbox-label {
+            font-weight: normal;
+            display: inline;
+        }
+        .submit-button {
+            margin-top: 20px;
+            background-color: #ff8800;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #e67300;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Konfiguracja Pogodynki</h2>
+
+    <form method="POST" action="save_config.php">
+        <label for="device_name">Nazwa urządzenia:</label>
+        <input type="text" id="device_name" name="device_name" placeholder="np. Pogodynka 1" required>
+
+        <label for="ssid">Nazwa sieci Wi-Fi (SSID):</label>
+        <input type="text" id="ssid" name="ssid" required>
+
+        <label for="password">Hasło Wi-Fi:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="sampling_interval">Interwał pomiarów (sekundy):</label>
+        <input type="number" id="sampling_interval" name="sampling_interval" value="60" min="10">
+
+        <label for="temperature_unit">Jednostka temperatury:</label>
+        <select id="temperature_unit" name="temperature_unit">
+            <option value="C">°C</option>
+            <option value="F">°F</option>
+        </select>
+
+        <label for="location_description">Opis lokalizacji:</label>
+        <input type="text" id="location_description" name="location_description" placeholder="np. Gdańsk, klasa 3B">
+
+        <label>
+            <input type="checkbox" id="log_to_db" name="log_to_db" value="1">
+            <span class="checkbox-label">Zapisuj dane do bazy lokalnie</span>
+        </label>
+
+        <button type="submit" class="submit-button">Zapisz konfigurację</button>
+    </form>
+</div>
+
+</body>
+</html>
