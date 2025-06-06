@@ -6,6 +6,8 @@ from collector.weather_data_collector import WeatherDataCollector
 from utils.time_helpers import format_timestamp
 import uasyncio
 
+
+
 class WeatherStation:
     def __init__(self):
         self.bme680 = BME680Sensor()
@@ -13,6 +15,7 @@ class WeatherStation:
         self.wind_speed_sensor = WindSpeedSensor(18, 1, 8.5)
         self.AS5600_sensor = AS5600Sensor()
         self.collector = WeatherDataCollector([self.bme680, self.rain_sensor, self.wind_speed_sensor, self.AS5600_sensor])
+
 
     async def update(self, interval_ms=10):
         while True:
@@ -36,3 +39,5 @@ class WeatherStation:
             else:
                 print(f"[{format_timestamp()}] [WeatherStation] No data collected")
             await uasyncio.sleep(interval_sec)
+
+
