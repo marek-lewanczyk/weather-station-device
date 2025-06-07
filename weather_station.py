@@ -1,3 +1,4 @@
+from utils.access_point import AccessPointManager
 from sensors.wind_speed_sensor import WindSpeedSensor
 from sensors.rain_sensor import RainSensor
 from sensors.bme680_sensor import BME680Sensor
@@ -13,6 +14,7 @@ class WeatherStation:
         self.wind_speed_sensor = WindSpeedSensor(18, 1, 8.5)
         self.AS5600_sensor = AS5600Sensor()
         self.collector = WeatherDataCollector([self.bme680, self.rain_sensor, self.wind_speed_sensor, self.AS5600_sensor])
+        self.ap_manager = AccessPointManager()
 
     async def update(self, interval_ms=10):
         while True:
