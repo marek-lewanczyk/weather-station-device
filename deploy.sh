@@ -13,7 +13,6 @@ echo "📦 Tworzenie katalogów na ESP32..."
 mpremote fs mkdir sensors
 mpremote fs mkdir collector
 mpremote fs mkdir config
-#mpremote fs mkdir web
 mpremote fs mkdir lib
 mpremote fs mkdir utils
 
@@ -26,11 +25,9 @@ mpremote fs cp sensors/wind_speed_sensor.py :sensors/
 mpremote fs cp sensors/as5600_sensor.py :sensors/
 mpremote fs cp collector/weather_data_collector.py :collector/
 mpremote fs cp config/config.json :config/
-#mpremote fs cp web/config.html :web/
-#mpremote fs cp web/web_config_server.py :web/
 mpremote fs cp lib/bme680.py :lib/
 mpremote fs cp utils/time_helpers.py :utils/
-mpremote fs cp utils/access_point.py :utils/
+mpremote fs cp utils/wifi_manager.py :utils/
 
 echo "🚀 Uruchamianie main.py..."
 mpremote run main.py
