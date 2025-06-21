@@ -3,7 +3,7 @@ from utils.wifi_manager import WifiManager
 from weather_station import WeatherStation
 
 async def main():
-    wifi = WifiManager(ssid="WiFi_5", password="xakODlWwE")
+    wifi = WifiManager(ssid="iPhone (Marek)", password="123456789")
 
     if not wifi.connect():
         print("❌ Brak połączenia z Wi-Fi. Koniec programu.")

@@ -16,6 +16,7 @@ class WifiManager:
     def connect(self) -> bool:
         """Connect to the WiFi network."""
         if self.is_connected():
+            self.get_ip()
             print("Already connected to WiFi.")
             return True
 

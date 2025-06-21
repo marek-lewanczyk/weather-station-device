@@ -14,7 +14,7 @@ class WeatherStation:
         self.wind_speed_sensor = WindSpeedSensor(18, 1, 8.5)
         self.AS5600_sensor = AS5600Sensor()
         self.collector = WeatherDataCollector([self.bme680, self.rain_sensor, self.wind_speed_sensor, self.AS5600_sensor])
-        self.api_url = "http://192.168.1.104:8000/weather/"
+        self.api_url = "http://172.20.10.4:8000/weather/"
 
     async def update(self, interval_ms=10):
         while True:
